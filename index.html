@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Puzzle Game</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="scripts.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<header>
+		<img src="cabecera.png" alt="logo_cabecera">
+		<div>
+			<h1>Puzzle Game</h1>
+			<p>Juega con tu propio puzzle</p>
+		</div>
+	</header>
+	<div id="div-score" style="display:none">
+		<section>
+			<h2>Marcador</h2>
+			<ul>
+				<li>Piezas desordenadas: <span id="score-pieces"></span></li>
+				<li>Movimientos realizados: <span id="score-movs"></span></li>
+				<li>Tiempo: <span id="score-time"></span></li>
+			</ul>
+		</section>
+	</div>
+	<div>
+		<section>
+			<h2>Imagen</h2>
+			<canvas id="cv01"></canvas>
+			<footer>
+				<input id="input-file" type="file" accept="image/*" onchange="loadImage();">
+			</footer>
+		</section>
+		<section>
+			<h2>Puzzle</h2>
+			<canvas id="cv02"></canvas>
+			<footer>
+				<div>
+					<label for="stk-color">Color de las lineas: </label>
+					<input type="color" id="stk-color" value="#aa0000" onchange="changeStrokeColor(this.value);">
+					<label for="difficulty">Dificultad: </label>
+					<select id="difficulty" onchange="changeDifficulty(this.value);">
+						<option value="2">Baja</option>
+						<option value="3">Media</option>
+						<option value="4">Alta</option>
+					</select>
+				</div>
+				<div>
+					<button id="begin-button" onclick="beginGame();" disabled>Empezar</button>
+					<button id="end-button" onclick="endGame();" disabled>Terminar</button>
+					<button id="help-button" onclick="helpButton();" disabled>Ayuda</button>
+				</div>
+			</footer>
+		</section>
+	</div>
+	<footer>
+		<p>
+			<a href="https://github.com/Juansanalme/puzzlegame">&copy;<strong>juansanalme</strong></a><time datetime="2018-05"> mayo 2018</time>
+			<br>
+		</p>
+	</footer>
+	<script>loadCanvas();</script>
+</body>
+</html>
